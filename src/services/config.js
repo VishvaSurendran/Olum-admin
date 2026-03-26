@@ -1,1 +1,1 @@
-export const API_BASE_URL = 'https://olum-be.onrender.com';
+export const API_BASE_URL = 'https://vishva2717-olum-backend.hf.space';
