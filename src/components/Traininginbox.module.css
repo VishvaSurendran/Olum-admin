@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+:root {
+  --bg:         #0a0a0c;
+  --surface:    #111114;
+  --panel:      #16161a;
+  --border:     rgba(255,255,255,0.08);
+  --border-hi:  rgba(255,255,255,0.15);
+  --text-1:     #f2f2f4;
+  --text-2:     #8a8a99;
+  --text-3:     #55555f;
+  --accent:     #6c63ff;
+  --accent-lo:  rgba(108,99,255,0.12);
+  --accent-hi:  #8b85ff;
+  --glow:       rgba(108,99,255,0.35);
+  --success:    #4ade80;
+  --success-lo: rgba(74,222,128,0.1);
+  --error:      #ff5f7a;
+  --radius-sm:  10px;
+  --radius:     16px;
+}
+
+/* ── Wrapper card ───────────────────────────── */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-1);
+}
+
+/* ── Card header ────────────────────────────── */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cardTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+}
+
+.badge {
+  background: var(--accent-lo);
+  border: 1px solid rgba(108,99,255,0.25);
+  color: var(--accent-hi);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.badge.empty {
+  background: rgba(255,255,255,0.04);
+  border-color: var(--border);
+  color: var(--text-3);
+}
+
+.refreshBtn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-2);
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.refreshBtn:hover {
+  border-color: var(--border-hi);
+  color: var(--text-1);
+  transform: rotate(180deg);
+}
+
+/* ── Empty state ────────────────────────────── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.emptyIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--success-lo);
+  border: 1px solid rgba(74,222,128,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 0.25rem;
+}
+
+.emptyTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.emptyText {
+  font-size: 0.875rem;
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+/* ── Question list ──────────────────────────── */
+.questionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+/* ── Accordion item ─────────────────────────── */
+.questionItem {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.questionItem.open {
+  border-color: rgba(108,99,255,0.3);
+  box-shadow: 0 0 0 1px var(--accent-lo) inset;
+}
+
+.questionItem.answered {
+  opacity: 0.5;
+  border-color: rgba(74,222,128,0.2);
+}
+
+/* ── Accordion trigger ──────────────────────── */
+.questionTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.125rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: 'DM Sans', sans-serif;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.questionTrigger:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.triggerIndex {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: var(--accent-lo);
+  border: 1px solid rgba(108,99,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-hi);
+  font-family: 'Syne', sans-serif;
+}
+
+.triggerText {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-1);
+  line-height: 1.4;
+}
+
+.triggerMeta {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.triggerTime {
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+
+.triggerChevron {
+  width: 18px;
+  height: 18px;
+  color: var(--text-3);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.open .triggerChevron {
+  transform: rotate(180deg);
+  color: var(--accent-hi);
+}
+
+/* ── Accordion body ─────────────────────────── */
+.questionBody {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.open .questionBody {
+  max-height: 400px;
+}
+
+.questionBodyInner {
+  padding: 0 1.125rem 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.answerLabel {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.answerArea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem 1rem;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-height: 90px;
+  color: var(--text-1);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.answerArea::placeholder {
+  color: var(--text-3);
+}
+
+.answerArea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-lo);
+  background: rgba(108,99,255,0.04);
+}
+
+/* ── Footer row ─────────────────────────────── */
+.actionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.charCount {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+.charCount.filled {
+  color: var(--accent-hi);
+}
+
+.btnGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btnSkip {
+  background: transparent;
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnSkip:hover {
+  border-color: var(--border-hi);
+  color: var(--text-2);
+}
+
+.btnTeach {
+  background: linear-gradient(135deg, var(--accent), #8b6dff);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.125rem;
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  /* box-shadow: 0 4px 16px rgba(108,99,255,0.3); */
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btnTeach:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(108,99,255,0.4);
+}
+
+.btnTeach:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ── Inline feedback ────────────────────────── */
+.feedbackSuccess {
+  font-size: 0.8rem;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0.25rem;
+}
+
+.feedbackError {
+  font-size: 0.8rem;
+  color: var(--error);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0.25rem;
+}
