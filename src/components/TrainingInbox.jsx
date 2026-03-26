@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getPendingQuestions, teachBot } from '../services/api';
-import styles from './TrainingInbox.module.css';
+import styles from './Traininginbox.module.css';
 
 /* ── Chevron SVG ─────────────────────────────── */
 const ChevronIcon = ({ className }) => (
